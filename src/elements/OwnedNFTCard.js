@@ -106,10 +106,10 @@ function OwnedNFTCard(props) {
                                 <h6 className="product-title product_title_intro">Royalty:<span style={{ color: "orange" }}> {utils.formatEther(royalty.toString())}</span></h6>
                             </div>
                             <div className="product-title" href="#">
-                                <h6 className="product-title product_title_intro">Price :<span style={{ color: "orange" }}> {utils.formatEther(price.toString())} ETH</span></h6>
+                                <h6 className="product-title product_title_intro">Price :<span style={{ color: "orange" }}> {utils.formatEther(price.toString())} MTR</span></h6>
                             </div>
                             {/* <div className="product-title" href="#">
-                                <h6 className="product-title product_title_intro">Highest Bid :<span style={{ color: "orange" }}> {utils.formatEther(auction.highestBid.toString())} ETH</span></h6>
+                                <h6 className="product-title product_title_intro">Highest Bid :<span style={{ color: "orange" }}> {utils.formatEther(auction.highestBid.toString())} MTR</span></h6>
                             </div> */}
                         </div>{/* end product title*/}
                     </div>{/* end product description */}

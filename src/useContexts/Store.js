@@ -24,16 +24,16 @@ export const StoreFunctions = (props) => {
             alert("Get a web3 extension like metamask\n Click the walkthrough link")
         }
         await window.ethereum?.request({ method: 'eth_requestAccounts' }).then(res => {
-            if (window.ethereum?.chainId === "0x4e454153") {
+            if (window.ethereum?.chainId === "0x53") {
                 setAccounts(res[0])
-            } else if (window.ethereum?.chainId !== "0x4e454153") {
-                const answer = prompt("You need to be on the Aurora testnet network \nShould I go ahead to add or switch to the Aurora testnet network on metamask? \nTYPE yes or no", 'yes')
+            } else if (window.ethereum?.chainId !== "0x53") {
+                const answer = prompt("You need to be on the Meter testnet network \nShould I go ahead to add or switch to the Meter testnet network on metamask? \nTYPE yes or no", 'yes')
                 if (answer.toLowerCase() === "yes") {
                     
                     try {
                         window.ethereum?.request({
                             method: 'wallet_switchEthereumChain',
-                            params: [{ chainId: '0x4e454153' }],
+                            params: [{ chainId: '0x53' }],
                         }).then(() => window.ethereum?.request({ method: 'eth_requestAccounts' }).then(res => setAccounts(res[0])))
                         .catch((switchError) => {
                             if (switchError.code === 4902) {
@@ -42,29 +42,29 @@ export const StoreFunctions = (props) => {
                                         method: 'wallet_addEthereumChain',
                                         params: [
                                             {
-                                                chainId: '0x4e454153',
-                                                blockExplorerUrls: ["https://explorer.testnet.aurora.dev"],
-                                                chainName: "Aurora",
+                                                chainId: '0x53',
+                                                blockExplorerUrls: ["https://scan-warringstakes.meter.io/"],
+                                                chainName: "Meter",
                                                 nativeCurrency: {
-                                                    name: "Aurora ETH",
-                                                    symbol: "ETH",
+                                                    name: "Meter MTR",
+                                                    symbol: "MTR",
                                                     decimals: 18,
                                                 },
-                                                rpcUrls: ["https://testnet.aurora.dev"],
+                                                rpcUrls: ["https://rpctest.meter.io"],
                                             },
                                         ],
                                     }).then(() => window.ethereum?.request({ method: 'eth_requestAccounts' }).then(res => setAccounts(res[0])))
 
                                 } catch (addError) {
                                     // handle "add" error
-                                    console.error("Failed to add the Aurora Testnet Network: ", addError);
+                                    console.error("Failed to add the Meter Testnet Network: ", addError);
                                 }
                             }
                         })
                          
                     } catch (switchError) {
                         // This error code indicates that the chain has not been added to MetaMask.
-                        console.log("Could not switch to the Aurora Testnet Network \nAttempting to add it...");
+                        console.log("Could not switch to the Meter Testnet Network \nAttempting to add it...");
 
                         if (switchError.code === 4902) {
                             try {
@@ -72,22 +72,22 @@ export const StoreFunctions = (props) => {
                                     method: 'wallet_addEthereumChain',
                                     params: [
                                         {
-                                            chainId: '0x4e454153',
-                                            blockExplorerUrls: ["https://explorer.testnet.aurora.dev"],
-                                            chainName: "Aurora",
+                                            chainId: '0x53',
+                                            blockExplorerUrls: ["https://scan-warringstakes.meter.io/"],
+                                            chainName: "Meter",
                                             nativeCurrency: {
-                                                name: "Aurora ETH",
-                                                symbol: "ETH",
+                                                name: "Meter MTR",
+                                                symbol: "MTR",
                                                 decimals: 18,
                                             },
-                                            rpcUrls: ["https://testnet.aurora.dev"],
+                                            rpcUrls: ["https://rpctest.meter.io"],
                                         },
                                     ],
                                 }).then(() => window.ethereum?.request({ method: 'eth_requestAccounts' }).then(res => setAccounts(res[0])))
 
                             } catch (addError) {
                                 // handle "add" error
-                                console.error("Failed to add the Aurora Testnet Network: ", addError);
+                                console.error("Failed to add the Meter Testnet Network: ", addError);
                             }
                         }
                     }
@@ -149,7 +149,7 @@ export const StoreFunctions = (props) => {
     }
 
     const providerFunction = (address, abi) => {
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         // const tokenContract = new ethers.Contract(nftAddress, NFT.abi, provider);
         const contract = new ethers.Contract(address, abi, provider);
         return contract;
@@ -160,7 +160,7 @@ export const StoreFunctions = (props) => {
         if (!account) fx.setup();
 
         // const contract = await Promise.resolve(providerFunction(collectionAddress, CollectionAbi))
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(collectionAddress, CollectionAbi, provider);
 
         const result = (await contract.getPrice()).toString()
@@ -181,7 +181,7 @@ export const StoreFunctions = (props) => {
     fx.getUserCollections = async () => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(collectionAddress, CollectionAbi, provider);
         const result = await contract.getUserCollections()
         // console.log("getUserCollections()", result);
@@ -193,7 +193,7 @@ export const StoreFunctions = (props) => {
     fx.totalCollections = async () => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(collectionAddress, CollectionAbi, provider);
         const result = await contract.totalCollections()
         // console.log("totalCollections()", result);
@@ -204,7 +204,7 @@ export const StoreFunctions = (props) => {
     fx.getMoreCollections = async (startIndex, endIndex) => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(collectionAddress, CollectionAbi, provider);
         const result = await contract.getCollectionsPaginated(startIndex, endIndex)
         // console.log("getMoreCollections()", result);
@@ -227,7 +227,7 @@ export const StoreFunctions = (props) => {
     fx.tokenURI = async (tokenID, contractAddress) => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(contractAddress, NFTAbi, provider);
         const result = await contract.tokenURI(tokenID)
         // console.log("tokenURI()", result);
@@ -238,7 +238,7 @@ export const StoreFunctions = (props) => {
     fx.getTokenRoyalty = async (tokenID, contractAddress) => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(contractAddress, NFTAbi, provider);
         const result = await contract.getTokenRoyalty(tokenID)
         // console.log("getTokenRoyalty()", result);
@@ -249,7 +249,7 @@ export const StoreFunctions = (props) => {
     fx.balanceOf = async (userAddress, contractAddress) => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(contractAddress, NFTAbi, provider);
         const result = await contract.balanceOf(userAddress)
         // console.log("balanceOf()", +result);
@@ -260,7 +260,7 @@ export const StoreFunctions = (props) => {
     fx.tokenOfOwnerByIndex = async (ownerAddress, index, contractAddress) => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(contractAddress, NFTAbi, provider);
         const result = await contract.tokenOfOwnerByIndex(ownerAddress, index)
         // console.log("tokenOfOwnerByIndex()", result);
@@ -284,7 +284,7 @@ export const StoreFunctions = (props) => {
     fx.isApprovedForAll = async (userAddress, contractAddress) => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(contractAddress, NFTAbi, provider);
         const result = await contract.isApprovedForAll(userAddress, marketplaceAddress)
         // console.log("isApprovedForAll()", result);
@@ -305,7 +305,7 @@ export const StoreFunctions = (props) => {
     fx.fetchMarketItems = async () => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(marketplaceAddress, MarketplaceAbi, provider);
         const result = await contract.fetchMarketItems()
         // console.log("fetchMarketItems()", result);
@@ -316,7 +316,7 @@ export const StoreFunctions = (props) => {
     fx.fetchItemsCreated = async () => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(marketplaceAddress, MarketplaceAbi, provider);
         const result = await contract.fetchItemsCreated()
         // console.log("fetchItemsCreated()", result);
@@ -327,7 +327,7 @@ export const StoreFunctions = (props) => {
     fx.fetchMyNFTs = async () => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(marketplaceAddress, MarketplaceAbi, provider);
         const result = await contract.fetchMyNFTs()
         // console.log("fetchMyNFTs()", result);
@@ -388,7 +388,7 @@ export const StoreFunctions = (props) => {
     fx.fetchUserBids = async () => {
         if (!account) fx.setup();
 
-        const provider = new ethers.providers.JsonRpcProvider("https://testnet.aurora.dev");
+        const provider = new ethers.providers.JsonRpcProvider("https://rpctest.meter.io");
         const contract = new ethers.Contract(marketplaceAddress, MarketplaceAbi, provider);
         const result = await contract.fetchUserBids()
         // console.log("fetchUserBids()", result);

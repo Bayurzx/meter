@@ -2,24 +2,20 @@ require("@nomiclabs/hardhat-waffle");
 require('dotenv').config();
 
 
-process.env.REACT_APP_AURORA_PRIVATE_KEY ? console.log("REACT_APP_PRIVATE_KEY: True") : console.log("REACT_APP_PRIVATE_KEY: False");;
+process.env.METER_PRIVATE_KEY ? console.log("METER_PRIVATE_KEY: True") : console.log("METER_PRIVATE_KEY: False");;
 
 
 module.exports = {
   solidity: "0.8.4",
 
   networks: {
-    testnet_aurora: {
-      url: 'https://testnet.aurora.dev',
-      accounts: [`0x${process.env.REACT_APP_AURORA_PRIVATE_KEY}`]
+    meter_testnet: {
+      url: "https://rpctest.meter.io",
+      accounts: [`${process.env.METER_PRIVATE_KEY}`]
     },
-    develop_aurora: {
-      url: 'https://develop.rpc.testnet.aurora.dev:8545',
-      accounts: [`0x${process.env.REACT_APP_AURORA_PRIVATE_KEY}`]
-    },
-    ropsten: {
-      url: 'https://rpc.testnet.aurora.dev:8545',
-      accounts: [`0x${process.env.REACT_APP_AURORA_PRIVATE_KEY}`]
+    meter_mainnet: {
+      url: "https://rpc.meter.io",
+      accounts: [`${process.env.METER_PRIVATE_KEY}`]
     },
     alfajores: {
       url: "https://alfajores-forno.celo-testnet.org",

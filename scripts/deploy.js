@@ -17,7 +17,7 @@ async function main() {
   // await hre.run('compile');
 
   const provider = hre.ethers.provider;
-  const deployerWallet = new hre.ethers.Wallet(process.env.REACT_APP_AURORA_PRIVATE_KEY, provider);
+  const deployerWallet = new hre.ethers.Wallet(process.env.METER_PRIVATE_KEY, provider);
 
   console.log(
     "Deploying contracts with the account:",
@@ -45,10 +45,10 @@ async function main() {
 
   // deploy the collection contract
   const Collection = await hre.ethers.getContractFactory("Collection");
-  const marketFee = +(await hre.ethers.utils.parseUnits('0.001', 'ether'));
+  const marketFee = +(await hre.ethers.utils.parseUnits('0.0001', 'ether'));
   const collection = await Collection
     .connect(deployerWallet)
-    .deploy(marketFee, options);
+    .deploy(marketFee);
   await collection.deployed();
 
   console.log("Collection deployed to:", collection.address);

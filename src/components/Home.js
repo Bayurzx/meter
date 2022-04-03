@@ -60,7 +60,7 @@ function Home() {
                                                 <div className="counter_heading">
                                                     <p className="count-text pt-10">Total Earning</p>
                                                     <div className="counter_text header">
-                                                        <span className="counter-to" data-to={6} data-speed={4000}>6 </span> ETH
+                                                        <span className="counter-to" data-to={6} data-speed={4000}>6 </span> MTR
                                                     </div>
                                                 </div>
                                             </div>
