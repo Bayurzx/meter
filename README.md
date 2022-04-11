@@ -22,7 +22,7 @@ One of the issues plaguing the NFT ecosystem are counterfeiters or scam artists 
 
 - First, check out the site [AdeAI NFT Marketplace](https://adeai.netlify.app/)
 - Make sure you have a web wallet, preferably MetaMask.
-- If you haven’t added the Aurora Network yet, don’t worry the app will do that for you.
+- If you haven’t added the Meter Network yet, don’t worry the app will do that for you.
 - Make sure that you are on the testnet
 - Go to the faucet to get some test coins
 - Trade NFTs and play around with the AI.
@@ -30,9 +30,9 @@ One of the issues plaguing the NFT ecosystem are counterfeiters or scam artists 
 ## Check the 👉🏼 [walk-through](https://adeai-walkthrough.netlify.app/) 👈🏼 for a more comprehensive documentation
 
 How we built it
-![image](https://raw.githubusercontent.com/Bayurzx/adeai/master/screenshots/architecture.png)
+![image](https://raw.githubusercontent.com/Bayurzx/meter/master/screenshots/architecture.png)
 
-- The app was built with the help of the ReactJS Library and currently on top of the Aurora Testnet Network. DO NOT USE THE APP ON THE MAINNET.
+- The app was built with the help of the ReactJS Library and currently on top of the Meter Testnet Network. DO NOT USE THE APP ON THE MAINNET.
 - Users create a collection to house their NFTs. After creating a collection, you can then create your NFTs and then list them to be seen on the Marketplace. You need to setApprovalFor all before you can mint your token.
 - Make sure to choose between having a fixed price NFT or an auctionable NFT
 - You can choose to add a 3D version of your NFT make sure to check the walk-through to see how to add
@@ -57,9 +57,9 @@ How we built it
 
 ## Deploy smart-contract Steps
 
-After forking the repo, remember to run the following line on powershell to deploy to aurora and link the smart contract to the frontend.
+After forking the repo, remember to run the following line on powershell to deploy to the Meter network and link the smart contract to the frontend.
 
-- npx hardhat run scripts/deploy.js --network testnet_aurora
+- npx hardhat run scripts/deploy.js --network meter_testnet
 - copy-item -path ".\artifact\*" -destination ".\src\artifact\" -recurse -Force
 
 # Check out the app: [AdeAI NFT Marketplace](https://adeai.netlify.app/)
@@ -74,8 +74,7 @@ After forking the repo, remember to run the following line on powershell to depl
     <div class="col-lg-8">
     <div class="changelog_content">
         <ol>
-        <li><a href="https://doc.aurora.dev/" target="_blank" class="text-warning">Aurora</a></li>
-        <li><a href="https://near.org/" target="_blank" class="text-warning">Near Protocol</a></li>
+        <li><a href="https://docs.meter.io/" target="_blank" class="text-warning">Meter</a></li>
         <li><a href="https://portal.azure.com/" target="_blank" class="text-warning">Azure</a></li>
         <li><a href="http://sketchfab.com/" target="_blank" class="text-warning">Sketchfab</a></li>
         <li><a href="https://reactjs.org/" target="_blank" class="text-warning">ReactJS</a></li>
