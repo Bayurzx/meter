@@ -75,14 +75,14 @@ const Navbar = () => {
                                 <nav className="navigation" id="mobile-menu">
                                     <ul className="menu-list list-style-none mb-0"> {/* start ul  */}
                                         <li><Link to="/">Home</Link></li>
-                                        <li className="has-children"><Link to="/allcollection">Collection</Link>
+                                        <li className="has-children"><Link to="#">Collection</Link>
                                             <ul className="sub-menu">
                                                 <li><Link to="/allcollection">All Collection</Link></li>
                                                 <li><Link to="/usercollection"> User Collection</Link></li>
                                                 <li><Link to="/newcollection"> New Collection</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="has-children"><Link to="/allnfts">NFTs</Link>
+                                        <li className="has-children"><Link to="#">NFTs</Link>
                                             <ul className="sub-menu">
                                                 <li><Link to="/allnfts">All NFTs</Link></li>
                                                 <li><Link to="/ownednfts">Owned NFTs</Link></li>

@@ -4,12 +4,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { notification, Form, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import Store from '../useContexts/Store'
-import SelectStateContext from '../useContexts/SelectState'
-import { pinFileToIPFS, pinJSONToIPFS, unPin } from "../helpers";
-import Spinner from "../elements/Spinner";
-import Breadcrumb from "../elements/Breadcrumb";
-import NFTCard2 from "../elements/NFTCard2";
+import Store from '../../useContexts/Store'
+import SelectStateContext from '../../useContexts/SelectState'
+import { pinFileToIPFS, pinJSONToIPFS, unPin } from "../../helpers";
+import Spinner from "../../elements/Spinner";
+import Breadcrumb from "../../elements/Breadcrumb";
+import NFTCard2 from "../../elements/NFTCard2";
 
 function NewNFT() {
     const [price, setPrice] = useState();
@@ -201,7 +201,7 @@ function NewNFT() {
                                                         {dataType ? (
 
                                                             <div className="form-group col-md-12 pb-10">
-                                                                <p>Check <Link to="/walkthrough">Walkthrough Page</Link> on how to add 3D files</p>
+                                                                <p>Check <a href="https://adeai-walkthrough.netlify.app#3D_AR" target="_blank">Walkthrough</a> on how to add 3D files</p>
                                                                 <input
                                                                     value={metaData.threeD}
                                                                     type="text"

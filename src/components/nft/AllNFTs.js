@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import Store from '../useContexts/Store'
-import SelectStateContext from '../useContexts/SelectState'
-import Breadcrumb from "../elements/Breadcrumb";
-import Spinner from "../elements/Spinner";
-import UnsoldNFTCard from "../elements/UnsoldNFTCard";
-import Placeholders from "../elements/Placeholders";
-import Emptys from "../elements/Emptys";
+import Store from '../../useContexts/Store'
+import SelectStateContext from '../../useContexts/SelectState'
+import Breadcrumb from "../../elements/Breadcrumb";
+import Spinner from "../../elements/Spinner";
+import UnsoldNFTCard from "../../elements/UnsoldNFTCard";
+import NFTModal from "../../elements/NFTModal";
+import Placeholders from "../../elements/Placeholders";
+import Emptys from "../../elements/Emptys";
 import { useNavigate } from "react-router-dom";
 
 
-
-function OwnedNFTs() {
+function AllNFTs() {
     const { fetchMarketItems, fetchMyNFTs, fetchItemsCreated } = useContext(Store);
     const { loading, setLoading } = useContext(SelectStateContext);
 
@@ -22,14 +22,15 @@ function OwnedNFTs() {
 
 
     const fetchItems = async () => {
-        // const res = await fetchMarketItems()
+        setLoading(true)
+        const res = await fetchMarketItems()
 
-        // const [fixedNFT, auctionNFT] = res;
+        const [fixedNFT, auctionNFT] = res;
 
-        // const fixedAndAuction = fixedNFT.map((v, i) => ({ fixed: v, auction: auctionNFT[i] }));
+        const fixedAndAuction = fixedNFT.map((v, i) => ({ fixed: v, auction: auctionNFT[i] }));
 
-        // setAllUnsoldNFTs(fixedAndAuction)
-        setOwnedItem(await fetchMyNFTs())
+        setAllUnsoldNFTs(fixedAndAuction)
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -38,14 +39,15 @@ function OwnedNFTs() {
     }, [])
 
     const emptyFx = () => {
-        if (allUnsoldNFTs && allUnsoldNFTs.length < 1) {
+        if (!loading && allUnsoldNFTs && allUnsoldNFTs.length < 1) {
             return (
-                <div style={{ minWidth: "400px" }}>
+                <div >
                     <Emptys item="NFT" onClick={() => navigate(`/usercollection`)} />
                 </div>
             )
         }
     }
+
 
     return (
         <>
@@ -63,19 +65,19 @@ function OwnedNFTs() {
                 {/* start explore products */}
                 <div className="container pb-30">
                     {/* Start container */}
-                    <div className="row">
-
                         {emptyFx()}
 
-                        {!ownedItem ? (
+                    <div className="row">
+
+                        {loading ? (
                             <>
                                 <Placeholders />
                             </>
                         ) : (
                             <>
-                                {ownedItem.map((v) => (
+                                {allUnsoldNFTs.map((v) => (
 
-                                    <UnsoldNFTCard key={v.itemId} {...v} />
+                                    <UnsoldNFTCard key={(v.fixed.itemId).toString()} {...(v.fixed)} auction={v.auction} />
                                 ))}
                             </>
                         )}
@@ -89,9 +91,4 @@ function OwnedNFTs() {
     )
 }
 
-// <>
-//         {ownedItem.map((v) => (
-//             <UnsoldNFTCard key={v.itemId} {...(v)} />
-//     ))}
-// </>
-export default OwnedNFTs;
+export default AllNFTs

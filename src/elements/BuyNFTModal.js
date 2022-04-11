@@ -54,7 +54,7 @@ function BuyNFTModal({ itemId, price, isAuction, handleAuctionBid, bid, setBid, 
     return (
         <>
 
-            <div className="modal fade popup" id="popup_bid_nft" tabIndex={-1} role="dialog" aria-hidden="true">{/* start bid input popup */}
+            <div className="modal fade popup" id={`popup_bid_nft` + metaData.name.replace(/\s+/g, '')} tabIndex={-1} role="dialog" aria-hidden="true">{/* start bid input popup */}
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">

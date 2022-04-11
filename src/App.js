@@ -5,18 +5,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './antd.min.css'
 
 import Navbar from './components/Navbar'
-import NewCollection from './components/NewCollection';
-import UserCollection from './components/UserCollection';
-import AllCollection from './components/AllCollection';
-import NewNFT from './components/NewNFT';
-import CollectionDetail from './components/CollectionDetail';
-import AllNFTs from './components/AllNFTs';
-import ListedNFTs from './components/ListedNFTs';
-import OwnedNFTs from './components/OwnedNFTs';
+import NewCollection from './components/collection/NewCollection';
+import UserCollection from './components/collection/UserCollection';
+import AllCollection from './components/collection/AllCollection';
+import NewNFT from './components/nft/NewNFT';
+import CollectionDetail from './components/collection/CollectionDetail';
+import AllNFTs from './components/nft/AllNFTs';
+import ListedNFTs from './components/nft/ListedNFTs';
+import OwnedNFTs from './components/nft/OwnedNFTs';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
-import NFTDetail from './components/NFTDetail';
+import NFTDetail from './components/nft/NFTDetail';
 
 
 function App() {

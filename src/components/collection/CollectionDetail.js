@@ -4,16 +4,16 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { notification, Form, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import Store from '../useContexts/Store'
-import SelectStateContext from '../useContexts/SelectState'
-import { getJSONfromHash } from "../helpers";
-import Spinner from "../elements/Spinner";
-import Breadcrumb from "../elements/Breadcrumb";
-import NFTCard2 from "../elements/NFTCard2";
-import NFTModal from "../elements/NFTModal";
-import Emptys from "../elements/Emptys";
-import NFTmini from "../elements/NFTmini";
-import { twitterShare, linkedInShare, facebookShare } from "../helpers/fx";
+import Store from '../../useContexts/Store'
+import SelectStateContext from '../../useContexts/SelectState'
+import { getJSONfromHash } from "../../helpers";
+import Spinner from "../../elements/Spinner";
+import Breadcrumb from "../../elements/Breadcrumb";
+import NFTCard2 from "../../elements/NFTCard2";
+import NFTModal from "../../elements/NFTModal";
+import Emptys from "../../elements/Emptys";
+import NFTmini from "../../elements/NFTmini";
+import { twitterShare, linkedInShare, facebookShare } from "../../helpers/fx";
 
 function CollectionDetail() {
     

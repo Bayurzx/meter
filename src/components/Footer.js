@@ -53,15 +53,15 @@ function Footer() {
                         <div className="col-md-3 col-sm-6"> {/* col-3 */}
                             <div className="footer_widget wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                                 <div className="widget_title">
-                                    <h6>Aurora Resources</h6>
+                                    <h6>Meter Resources</h6>
                                 </div>
                                 <div className="widget_nav_link">
                                     <ul className="footer_nav">
-                                        <li><a href="https://doc.aurora.dev/" target="_blank">Welcome</a></li>
-                                        <li><a href="https://doc.aurora.dev/getting-started/network-endpoints/" target="_blank">Network</a></li>
-                                        <li><a href="https://doc.aurora.dev/interact/metamask" target="_blank">Metamask</a></li>
-                                        <li><a href="https://explorer.aurora.dev/" target="_blank">Block Explorer</a></li>
-                                        <li><a href="https://doc.aurora.dev/bridge/rainbow-bridge" target="_blank">Rainbow Bridge</a></li>
+                                        <li><a href="https://docs.meter.io/" target="_blank">Welcome</a></li>
+                                        <li><a href="https://github.com/meterio/meter_docs" target="_blank">GitHub</a></li>
+                                        <li><a href="https://docs.meter.io/wallet-setup/interacting-with-meter-mainnet-using-metamask" target="_blank">Metamask</a></li>
+                                        <li><a href="https://scan-warringstakes.meter.io/" target="_blank">Block Explorer</a></li>
+                                        <li><a href="http://faucet-warringstakes.meter.io/" target="_blank">Faucet</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -104,7 +104,7 @@ function NFTAuction({ currentMetaData, isAuction, price, creator, royalty, aucti
                         <ul>
                             <li className="product-all-icon">
                                 <span className="report-icon product-icon">
-                                    <button className='btn btn-lg btn-danger' data-toggle="modal" data-target="#popup_bid_nft">
+                                    <button className='btn btn-lg btn-danger' data-toggle="modal" data-target={`#popup_bid_nft` + currentMetaData.name.replace(/\s+/g, '')}>
                                         Bid <i className="bx bx-basket" />
                                     </button>
                                 </span>

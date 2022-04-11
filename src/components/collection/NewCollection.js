@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { notification, Form, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import Store from '../useContexts/Store'
-import SelectStateContext from '../useContexts/SelectState'
-import { pinFileToIPFS, pinJSONToIPFS, unPin } from "../helpers";
-import CollectionCard from "../elements/CollectionCard2";
-import Spinner from "../elements/Spinner";
-import Breadcrumb from "../elements/Breadcrumb";
+import Store from '../../useContexts/Store'
+import SelectStateContext from '../../useContexts/SelectState'
+import { pinFileToIPFS, pinJSONToIPFS, unPin } from "../../helpers";
+import CollectionCard from "../../elements/CollectionCard2";
+import Spinner from "../../elements/Spinner";
+import Breadcrumb from "../../elements/Breadcrumb";
 
 function NewCollection() {
     const [price, setPrice] = useState();

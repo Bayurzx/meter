@@ -4,17 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { notification, Form, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import Store from '../useContexts/Store'
-import CollectionStateContext from '../useContexts/CollectionState'
-import SelectStateContext from '../useContexts/SelectState'
-import { getJSONfromHash } from "../helpers";
-import CollectionCard from "../elements/CollectionCard";
-import Breadcrumb from "../elements/Breadcrumb";
-import ModalPopup from "../elements/ModalPopup";
-import Spinner from "../elements/Spinner";
+import Store from '../../useContexts/Store'
+import CollectionStateContext from '../../useContexts/CollectionState'
+import SelectStateContext from '../../useContexts/SelectState'
+import { getJSONfromHash } from "../../helpers";
+import CollectionCard from "../../elements/CollectionCard";
+import Breadcrumb from "../../elements/Breadcrumb";
+import ModalPopup from "../../elements/ModalPopup";
+import Spinner from "../../elements/Spinner";
 import { Button } from "react-bootstrap";
-import Emptys from "../elements/Emptys";
-import Placeholders from "../elements/Placeholders";
+import Emptys from "../../elements/Emptys";
+import Placeholders from "../../elements/Placeholders";
 
 
 
@@ -90,7 +90,7 @@ function UserCollection() {
             {loading && <Spinner />}
             <Breadcrumb
                 title="User Collection"
-                description="You will find your collection here"
+                description="You will find your collection here, go ahead and create your NFT 🚀 in your collection. Don't forget to list it!"
             />
             <ModalPopup />
 
@@ -127,7 +127,7 @@ function UserCollection() {
 
 
 
-                    {numCollection < totalNumCollection ? (
+                    {/* {numCollection < totalNumCollection ? (
                         <div className="owl-nav">
                             <Button
                                 className="owl-next"
@@ -139,7 +139,7 @@ function UserCollection() {
 
                     ) : (
                         <></>
-                    )}
+                    )} */}
 
 
                 </div>

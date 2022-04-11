@@ -16,25 +16,7 @@ module.exports = {
     meter_mainnet: {
       url: "https://rpc.meter.io",
       accounts: [`${process.env.METER_PRIVATE_KEY}`]
-    },
-    alfajores: {
-      url: "https://alfajores-forno.celo-testnet.org",
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/52752'/0'/0"
-      },
-      chainId: 44787
-    },
-    celo: {
-      url: "https://forno.celo.org",
-      accounts: {
-        mnemonic: process.env.MNEMONIC,
-        path: "m/44'/52752'/0'/0"
-      },
-      chainId: 42220
     }
-
-
   },
   
   // optimizer helps with the Warning: Contract code size exceeds 24576 bytes (a limit introduced in Spurious Dragon)

@@ -340,16 +340,18 @@ contract Marketplace is ReentrancyGuard {
         MarketItem storage currentItem = idToMarketItem[itemId];
         require(!currentItem.isAuction, "THIS ITEM IS ON AUCTION");
         require(
-            msg.value == currentItem.price,
+            msg.value >= currentItem.price,
             "SUBMIT ASKING PRICE TO COMPLETE PURCHASE"
         );
         require(!currentItem.sold, "ITEM ALREADY SOLD");
+
         if (currentItem.creator == currentItem.seller) {
             payable(currentItem.nftContractAddress).transfer(msg.value);
         } else {
             payable(currentItem.seller).transfer(currentItem.royalty);
             currentItem.seller.transfer(msg.value - currentItem.royalty);
         }
+
         IERC721(nftContractAddress).transferFrom(
             address(this),
             msg.sender,
@@ -442,7 +444,8 @@ contract Marketplace is ReentrancyGuard {
         MarketItem[] memory items = new MarketItem[](itemCount);
         for (uint256 i = 0; i < totalItemCount; i++) {
             if (idToMarketItem[i + 1].owner == msg.sender) {
-                uint256 currentId = i + 1;
+                // uint256 currentId = i + 1;
+                uint256 currentId = idToMarketItem[i + 1].itemId;
                 MarketItem storage currentItem = idToMarketItem[currentId];
                 items[currentIndex] = currentItem;
                 currentIndex += 1;

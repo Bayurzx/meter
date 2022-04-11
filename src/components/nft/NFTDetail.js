@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import Store from '../useContexts/Store'
-import SelectStateContext from '../useContexts/SelectState'
-import ButtonAI from "../elements/ButtonAI";
+import Store from '../../useContexts/Store'
+import SelectStateContext from '../../useContexts/SelectState'
+import ButtonAI from "../../elements/ButtonAI";
 import { Link, useNavigate } from "react-router-dom";
-import Sketchfab from "../elements/Sketchfab";
+import Sketchfab from "../../elements/Sketchfab";
 import { notification } from "antd";
-import { twitterShare, linkedInShare, facebookShare } from "../helpers/fx";
-import { predictYourImage } from "../helpers/predictionAi";
+import { twitterShare, linkedInShare, facebookShare } from "../../helpers/fx";
+import { predictYourImage } from "../../helpers/predictionAi";
 import { utils } from "ethers";
 
 
@@ -36,7 +36,7 @@ function NFTDetail() {
 
     }, [selectedNFT])
 
-    // console.log('selectedNFT', selectedNFT);
+    console.log('selectedNFT', selectedNFT);
 
     const { metaData, tokenId, price, auction, royalty, creator, isAuction, nftContractAddress, itemId } = selectedNFT;
 
@@ -55,7 +55,7 @@ function NFTDetail() {
     const toPredictWithUrl = async (image) => {
         image = `https://ipfs.infura.io/ipfs/${image}`
 
-        // console.log('image', image);
+        console.log('image', image);
         const predictedData = await predictYourImage(image);
         // console.log("predictedData", predictedData);
 

@@ -1,2 +1,2 @@
-export const marketplaceAddress = "0x4d84156a7b9cA7F82F57e6718DA1fD2d59b3BD17";
-export const collectionAddress = "0x301006b74b1488226Cfd4f5dd9fC63aF6CF98Bd5";
+export const marketplaceAddress = "0xc1eE5f75c70B08E01f3C7E24b9f62a0E4158Cf5F";
+export const collectionAddress = "0xEBf512D08196F3039E4c19AD2a09dAaA8e3B3f84";

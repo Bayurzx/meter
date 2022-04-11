@@ -4,17 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { notification, Form, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
-import Store from '../useContexts/Store'
-import CollectionStateContext from '../useContexts/CollectionState'
-import SelectStateContext from '../useContexts/SelectState'
-import { getJSONfromHash } from "../helpers";
-import AllCollectionCard from "../elements/AllCollectionCard";
-import Breadcrumb from "../elements/Breadcrumb";
-import ModalPopup from "../elements/ModalPopup";
-import Spinner from "../elements/Spinner";
+import Store from '../../useContexts/Store'
+import CollectionStateContext from '../../useContexts/CollectionState'
+import SelectStateContext from '../../useContexts/SelectState'
+import { getJSONfromHash } from "../../helpers";
+import AllCollectionCard from "../../elements/AllCollectionCard";
+import Breadcrumb from "../../elements/Breadcrumb";
+import ModalPopup from "../../elements/ModalPopup";
+import Spinner from "../../elements/Spinner";
 import { Button } from "react-bootstrap";
-import Placeholders from "../elements/Placeholders";
-import Emptys from "../elements/Emptys";
+import Placeholders from "../../elements/Placeholders";
+import Emptys from "../../elements/Emptys";
 
 
 function AllCollection() {
